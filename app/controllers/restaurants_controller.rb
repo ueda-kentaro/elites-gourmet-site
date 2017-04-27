@@ -2,6 +2,8 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @q = Restaurant.search(params[:q])
+    @restaurants = @q.result.page(params[:page]).per(20).order(:id)
   end
   
   def show
@@ -55,7 +57,7 @@ class RestaurantsController < ApplicationController
       render :new
     else
       @restaurant.save!
-      falsh[:notice] = I18n.t('restaurant.created')
+      flash[:notice] = I18n.t('restaurant.created')
       redirect_to action: :index
     end
   end
