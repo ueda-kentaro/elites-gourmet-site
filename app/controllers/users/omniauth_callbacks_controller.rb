@@ -2,14 +2,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     def facebook    
         auth = request.env["omniauth.auth"]
-        @user = User.where(provider: suth.provider, provider_uid: auth.uid).first
+        @user = User.where(provider: auth.provider, provider_uid: auth.uid).first
         unless @user
           @user = User.create(
             name: auth.extra.raw_info.name,
             email: dummy_email(auth),
             provider: auth.provider,
             provider_token: auth.credentials.token,
-            provider_uid: auth_uid,
+            provider_uid: auth.uid,
             password: Devise.friendly_token[0,20],
             encrypted_password: [*1..9, *'A'..'Z', *'a'..'z'].sample(10).join,
             agreement: true
