@@ -13,6 +13,7 @@ class Restaurant < ActiveRecord::Base
     validates :restaurant_genres, length: { minimum: 1}
     validates :telephone_number, presence: true
     validates :address, presence: true
+    validates :introduction, presence: true
     validates :has_private_room, inclusion: {in: [true, false]} 
     validates :seat_count, presence: true, numericality: true
     validates_numericality_of :seat_count, greater_than: 0

@@ -84,12 +84,12 @@ class RestaurantsController < ApplicationController
       render :edit
     else
       @restaurant.save!
-      falsh[:notice] = I18n.t('restaurant.updated')
+      flash[:notice] = I18n.t('restaurant.updated')
       redirect_to action: :show, id: @restaurant.id
     end
   end
   
-  def destory
+  def destroy
     restaurant = Restaurant.find_by(id: params[:id], user_id: current_user.id)
     restaurant.destroy!
     flash[:notice] = I18n.t('restaurant.deleted')
@@ -98,7 +98,7 @@ class RestaurantsController < ApplicationController
   
   private
   def input_params
-    params.require(:restaurant).permit(:name, :telephone_number, :address, :has_private_room, :seat_count, :open_date, genre_ids: [], restaurant_images_attributes: [:id, :image, :image_cache])
+    params.require(:restaurant).permit(:name, :telephone_number, :address, :introduction, :has_private_room, :seat_count, :open_date, genre_ids: [], restaurant_images_attributes: [:id, :image, :image_cache])
   end
   
 end

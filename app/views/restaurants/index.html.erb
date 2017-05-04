@@ -36,7 +36,7 @@
           <div class="restaurant_list_count">
             <%= @restaurants.length == 0 ? 0 : @restaurants.offset_value + 1 %> 〜 <%= @restaurants.offset_value + @restaurants.length %> 件目を表示 / 全<%= @restaurants.total_count %>件            
           </div>
-          <div class="restaurant-list">
+          <div class="restaurant_list">
             <% @restaurants.each do |restaurant| %>
               <%= render 'restaurants/per_restaurant', restaurant: restaurant %>
             <% end %>
