@@ -15,7 +15,8 @@
           </div>
         </div>
         <div class="introduction">
-            <p><%= raw restaurant.introduction %></p>
+            <!--<p><%= raw restaurant.introduction %></p>-->
+            <p><%= strip_tags(restaurant.introduction) %></p>
         </div>
       </div>
     </div>
