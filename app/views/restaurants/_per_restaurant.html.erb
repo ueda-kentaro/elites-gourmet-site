@@ -14,6 +14,10 @@
             <%= render 'restaurants/genre_list', restaurant: restaurant %>
           </div>
         </div>
+        <div class="introduction">
+            <!--<p><%= raw restaurant.introduction %></p>-->
+            <p><%= strip_tags(restaurant.introduction) %></p>
+        </div>
       </div>
     </div>
 <% end %>

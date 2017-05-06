@@ -76,7 +76,24 @@ ul.genre_list {
             max-height: 100%;
           }
         }
+
         .genres {
+          margin-left: 10px;
+        }
+        .introduction{
+            width: 500px;
+            height: 90px;
+            float: left;
+            p{
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              -webkit-box-orient: vertical;
+              // display: -webkit-box;
+              // -webkit-line-clamp: 1;
+              text-decoration: none;
+              color: black;
+            }
         }
       }
     }
